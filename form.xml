@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<h:html xmlns:h="http://www.w3.org/1999/xhtml" xmlns:orx="http://openrosa.org/jr/xforms" xmlns="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:vellum="http://commcarehq.org/xforms/vellum">
+	<h:head>
+		<h:title>Encuesta</h:title>
+		<model>
+			<instance>
+				<data xmlns:jrm="http://dev.commcarehq.org/jr/xforms" xmlns="http://openrosa.org/formdesigner/F4D54DBC-4779-4399-89B4-3090A692B775" uiVersion="1" version="1" name="Encuesta">
+					<question1 />
+					<question2 />
+					<question3 />
+					<question8 />
+					<question9 />
+					<question4 />
+				</data>
+			</instance>
+			<bind vellum:nodeset="#form/question1" nodeset="/data/question1" type="xsd:string" required="false()" />
+			<bind vellum:nodeset="#form/question2" nodeset="/data/question2" type="xsd:int" constraint=". &lt;= 100" jr:constraintMsg="jr:itext('question2-constraintMsg')" required="false()" />
+			<bind vellum:nodeset="#form/question3" nodeset="/data/question3" required="false()" />
+			<bind vellum:nodeset="#form/question8" nodeset="/data/question8" vellum:relevant="#form/question3 = 'Android'" relevant="/data/question3 = 'Android'" />
+			<bind vellum:nodeset="#form/question9" nodeset="/data/question9" vellum:relevant="#form/question3 = 'iOS'" relevant="/data/question3 = 'iOS'" />
+			<bind vellum:nodeset="#form/question4" nodeset="/data/question4" vellum:relevant="#form/question3 = 'Windows'" relevant="/data/question3 = 'Windows'" />
+			<itext>
+				<translation lang="en" default="">
+					<text id="question1-label">
+						<value>¿Cual es su nombre?</value>
+					</text>
+					<text id="question2-label">
+						<value>Cuantos años tiene?</value>
+					</text>
+					<text id="question2-constraintMsg">
+						<value>Encuesta solo para personas menores de 100 años.</value>
+					</text>
+					<text id="question3-label">
+						<value>Elija su Sistema Operativo móvil preferido</value>
+					</text>
+					<text id="question3-Android-label">
+						<value>Android</value>
+					</text>
+					<text id="question3-iOS-label">
+						<value>iOS</value>
+					</text>
+					<text id="question3-Windows-label">
+						<value>Windows</value>
+					</text>
+					<text id="question8-label">
+						<value>Valoracion Android</value>
+					</text>
+					<text id="question8-Malo-label">
+						<value>Malo</value>
+					</text>
+					<text id="question8-Regular-label">
+						<value>Regular</value>
+					</text>
+					<text id="question8-Excelente-label">
+						<value>Excelente</value>
+					</text>
+					<text id="question9-label">
+						<value>Valoracion iOS</value>
+					</text>
+					<text id="question9-Malo-label">
+						<value>Malo</value>
+					</text>
+					<text id="question9-Regular-label">
+						<value>Regular</value>
+					</text>
+					<text id="question9-Excelente-label">
+						<value>Excelente</value>
+					</text>
+					<text id="question4-label">
+						<value>Valoracion Windows</value>
+					</text>
+					<text id="question4-Malo-label">
+						<value>Malo</value>
+					</text>
+					<text id="question4-Regular-label">
+						<value>Regular</value>
+					</text>
+					<text id="question4-Excelente-label">
+						<value>Excelente</value>
+					</text>
+				</translation>
+			</itext>
+		</model>
+	</h:head>
+	<h:body>
+		<input vellum:ref="#form/question1" ref="/data/question1">
+			<label ref="jr:itext('question1-label')" />
+		</input>
+		<input vellum:ref="#form/question2" ref="/data/question2">
+			<label ref="jr:itext('question2-label')" />
+			<alert ref="jr:itext('question2-constraintMsg')" />
+		</input>
+		<select1 vellum:ref="#form/question3" ref="/data/question3">
+			<label ref="jr:itext('question3-label')" />
+			<item>
+				<label ref="jr:itext('question3-Android-label')" />
+				<value>Android</value>
+			</item>
+			<item>
+				<label ref="jr:itext('question3-iOS-label')" />
+				<value>iOS</value>
+			</item>
+			<item>
+				<label ref="jr:itext('question3-Windows-label')" />
+				<value>Windows</value>
+			</item>
+		</select1>
+		<select1 vellum:ref="#form/question8" ref="/data/question8">
+			<label ref="jr:itext('question8-label')" />
+			<item>
+				<label ref="jr:itext('question8-Malo-label')" />
+				<value>Malo</value>
+			</item>
+			<item>
+				<label ref="jr:itext('question8-Regular-label')" />
+				<value>Regular</value>
+			</item>
+			<item>
+				<label ref="jr:itext('question8-Excelente-label')" />
+				<value>Excelente</value>
+			</item>
+		</select1>
+		<select1 vellum:ref="#form/question9" ref="/data/question9">
+			<label ref="jr:itext('question9-label')" />
+			<item>
+				<label ref="jr:itext('question9-Malo-label')" />
+				<value>Malo</value>
+			</item>
+			<item>
+				<label ref="jr:itext('question9-Regular-label')" />
+				<value>Regular</value>
+			</item>
+			<item>
+				<label ref="jr:itext('question9-Excelente-label')" />
+				<value>Excelente</value>
+			</item>
+		</select1>
+		<select1 vellum:ref="#form/question4" ref="/data/question4">
+			<label ref="jr:itext('question4-label')" />
+			<item>
+				<label ref="jr:itext('question4-Malo-label')" />
+				<value>Malo</value>
+			</item>
+			<item>
+				<label ref="jr:itext('question4-Regular-label')" />
+				<value>Regular</value>
+			</item>
+			<item>
+				<label ref="jr:itext('question4-Excelente-label')" />
+				<value>Excelente</value>
+			</item>
+		</select1>
+	</h:body>
+</h:html>
